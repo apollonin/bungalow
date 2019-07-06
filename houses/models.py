@@ -1,24 +1,22 @@
 from django.db import models
 
-# Create your models here.
+AREA_UNIT_CHOICES = [
+    ('SqFt', 'SqFt'),
+]
+
+HOME_TYPE_CHOICES = [
+    ('Apartment', 'Apartment'),
+    ('Condominium', 'Condominium'),
+    ('Condominium', 'Condominium'),
+    ('Duplex', 'Duplex'),
+    ('home_type', 'home_type'),
+    ('Miscellaneous', 'Miscellaneous'),
+    ('MultiFamily2To4', 'MultiFamily2To4'),
+    ('SingleFamily', 'SingleFamily'),
+    ('VacantResidentialLand', 'VacantResidentialLand'),
+]
+
 class House(models.Model):
-
-    AREA_UNIT_CHOICES = [
-        ('SqFt', 'SqFt'),
-    ]
-
-    HOME_TYPE_CHOICES = [
-        ('Apartment', 'Apartment'),
-        ('Condominium', 'Condominium'),
-        ('Condominium', 'Condominium'),
-        ('Duplex', 'Duplex'),
-        ('home_type', 'home_type'),
-        ('Miscellaneous', 'Miscellaneous'),
-        ('MultiFamily2To4', 'MultiFamily2To4'),
-        ('SingleFamily', 'SingleFamily'),
-        ('VacantResidentialLand', 'VacantResidentialLand'),
-    ]
-
     area_unit = models.CharField(max_length=10, choices=AREA_UNIT_CHOICES, null=True)
     bathrooms = models.FloatField(blank=True, null=True)
     bedrooms = models.PositiveSmallIntegerField(null=True)

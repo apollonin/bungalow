@@ -1,3 +1,5 @@
 .DS_Store
 *sublime*
 db.sqlite3
+*.pyc
+__pycache__

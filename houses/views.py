@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from houses.models import House
+from houses.serializers import HouseSerializer
+from rest_framework import viewsets
 
-# Create your views here.
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+
+class HouseViewSet(viewsets.ModelViewSet):
+    queryset = House.objects.all()
+    serializer_class = HouseSerializer

@@ -22,18 +22,14 @@ class Command(BaseCommand):
                 house = self.create_house(row)
                 self.stdout.write(str(house))
                 house.save()
-                # break
 
         self.stdout.write(self.style.SUCCESS("Done"))
 
     def create_house(self, row):
         row = self.parse_formats(row)
-        house = House(**row)
-        # print(house.price);exit()
-        return house
+        return House(**row)
 
     def parse_formats(self, row):
-        # print(row);exit()
         try:
             row['bathrooms'] = float(row['bathrooms']) if row['bathrooms'] else None
             row['bedrooms'] = int(row['bedrooms'])
@@ -57,8 +53,6 @@ class Command(BaseCommand):
         except Exception as e:
             self.stdout.write(self.style.WARNING(row))
             raise
-        
-        
 
     def _parse_date(self, date):
         if not date: return None
@@ -84,4 +78,3 @@ class Command(BaseCommand):
             price = float(price[:-1]) * abbrs_to_power[abbr]
 
         return price
-
